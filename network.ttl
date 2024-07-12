@@ -5,9 +5,61 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@base <http://www.w3.org/2002/07/owl#> .
+@base <http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#> .
 
 <http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#bandwidth
+:bandwidth rdf:type owl:AnnotationProperty ;
+           rdfs:subPropertyOf :resourceDescription .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#cpuUtilization
+:cpuUtilization rdf:type owl:AnnotationProperty ;
+                rdfs:subPropertyOf :resourceUtilization .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#memoryResource
+:memoryResource rdf:type owl:AnnotationProperty ;
+                rdfs:subPropertyOf :resourceDescription .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#memoryUtilization
+:memoryUtilization rdf:type owl:AnnotationProperty ;
+                   rdfs:subPropertyOf :resourceUtilization .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#resourceDescription
+:resourceDescription rdf:type owl:AnnotationProperty .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#resourceUtilization
+:resourceUtilization rdf:type owl:AnnotationProperty .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#storageResource
+:storageResource rdf:type owl:AnnotationProperty ;
+                 rdfs:subPropertyOf :resourceDescription .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#storageUtilization
+:storageUtilization rdf:type owl:AnnotationProperty ;
+                    rdfs:subPropertyOf :resourceUtilization .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#vcpuResource
+:vcpuResource rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf :resourceDescription .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#vcpuUtilization
+:vcpuUtilization rdf:type owl:AnnotationProperty ;
+                 rdfs:subPropertyOf :resourceUtilization .
+
 
 #################################################################
 #    Datatypes
@@ -16,12 +68,13 @@
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#address
 :address rdf:type rdfs:Datatype .
 
-:bandwidth rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceDescription .
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#bandwidth
+:bandwidth rdf:type rdfs:Datatype .
+
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#cpuUtilization
-:cpuUtilization rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceUtilization .
+:cpuUtilization rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#directoryPath
@@ -45,13 +98,11 @@
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#memoryResource
-:memoryResource rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceDescription .
+:memoryResource rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#memoryUtilization
-:memoryUtilization rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceUtilization .
+:memoryUtilization rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#path
@@ -60,6 +111,7 @@
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#port
 :port rdf:type rdfs:Datatype .
+
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#resourceDescription
 :resourceDescription rdf:type rdfs:Datatype .
@@ -74,38 +126,32 @@
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#storageResource
-:storageResource rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceDescription .
+:storageResource rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#storageUtilization
-:storageUtilization rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceUtilization .
+:storageUtilization rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#vcpuResource
-:vcpuResource rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceDescription .
+:vcpuResource rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#vcpuUtilization
-:vcpuUtilization rdf:type rdfs:Datatype ;
-	rdfs:subPropertyOf :resourceUtilization .
+:vcpuUtilization rdf:type rdfs:Datatype .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#webPath
 :webPath rdf:type rdfs:Datatype .
 
+
 #################################################################
 #    Object Properties
 #################################################################
 
-:link rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf owl:topObjectProperty .
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#claimTarget
+:claimTarget rdf:type owl:ObjectProperty .
 
-:physicalLink rdf:type owl:ObjectProperty ;
-			rdfs:subPropertyOf :link ;
-			rdf:type owl:SymmetricProperty .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#compute
 :compute rdf:type owl:ObjectProperty ;
@@ -123,7 +169,10 @@
 :connectedByWire rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :connected .
 
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#country
 :country rdf:type owl:ObjectProperty .
+
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#descriptionProperty
 :descriptionProperty rdf:type owl:ObjectProperty ;
@@ -155,6 +204,11 @@
                      rdfs:subPropertyOf :has .
 
 
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#hasFunction
+:hasFunction rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :has .
+
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#hasInstance
 :hasInstance rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :has ;
@@ -166,10 +220,6 @@
               rdfs:subPropertyOf :has ;
               owl:inverseOf :isInterfaceOf .
 
-
-###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#hasNetworkFunction
-:hasFunction rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :has .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#hasPackage
 :hasPackage rdf:type owl:ObjectProperty ;
@@ -270,21 +320,32 @@
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#link
-:link rdf:type owl:ObjectProperty .
+:link rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#network
 :network rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topDataProperty .
 
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ownedBy
 :ownedBy rdf:type owl:ObjectProperty .
 
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ownershipProperty
 :ownershipProperty rdf:type owl:ObjectProperty .
 
-:ownsClaim rdf:type owl:ObjectProperty ;
-	rdfs:subPropertyOf :ownershipProperty .
 
-:claimTarget rdf:type owl:ObjectProperty .
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ownsClaim
+:ownsClaim rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :ownershipProperty .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#physicalLink
+:physicalLink rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :link ;
+              rdf:type owl:SymmetricProperty .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#report
@@ -327,12 +388,22 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#address
+:address rdf:type owl:DatatypeProperty .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#id
+:id rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#interfaceProperty
 :interfaceProperty rdf:type owl:DatatypeProperty .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ipAddress
-:ipAddress rdf:type owl:DatatypeProperty .
+:ipAddress rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :address .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ipv4Address
@@ -367,13 +438,25 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 <http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class .
 
 
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#AccessMobilityManagementFunction
+:AccessMobilityManagementFunction rdf:type owl:Class ;
+                                  rdfs:subClassOf :RadioAccessFunction .
+
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Application
 :Application rdf:type owl:Class ;
              rdfs:subClassOf owl:Class .
 
 
-:BandwidthClaim rdf:type owl:Class ;
-	rdfs:subClassOf :Claim .
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ApplicationFunction
+:ApplicationFunction rdf:type owl:Class ;
+                     rdfs:subClassOf :RadioAccessFunction .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#AuthenticationServerFunction
+:AuthenticationServerFunction rdf:type owl:Class ;
+                              rdfs:subClassOf :RadioAccessFunction .
+
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#BGP
 :BGP rdf:type owl:Class ;
@@ -384,13 +467,21 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 :BGPFunction rdf:type owl:Class ;
              rdfs:subClassOf :SwitchFunction .
 
-###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ClusterTemplate
-:ResourceClaim rdf:type owl:Class ;
-		rdfs:subClassOf owl:Class .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#BackendFunction
 :BackendFunction rdf:type owl:Class ;
                  rdfs:subClassOf :ServiceFunction .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#BandwidthClaim
+:BandwidthClaim rdf:type owl:Class ;
+                rdfs:subClassOf :Claim .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Claim
+:Claim rdf:type owl:Class ;
+       rdfs:subClassOf :State .
+
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ClusterTemplate
 :ClusterTemplate rdf:type owl:Class ;
@@ -418,17 +509,11 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
            owl:disjointWith :OS .
 
 
-###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#CoreRouter
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#CoreSwitch
 :CoreSwitch rdf:type owl:Class ;
             rdfs:subClassOf :BGPFunction ,
                             :MPLSFunction .
 
-:MetroSwitch rdf:type owl:Class ;
-            rdfs:subClassOf :BGPFunction ,
-                            :MPLSFunction .
-
-:DataCentre rdf:type owl:Class ;
-			rdfs:subClassOf owl:Class .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#DHCP
 :DHCP rdf:type owl:Class ;
@@ -438,6 +523,11 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#DNS
 :DNS rdf:type owl:Class ;
      rdfs:subClassOf :Protocol .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#DataCentre
+:DataCentre rdf:type owl:Class ;
+            rdfs:subClassOf owl:Class .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#DatabaseFunction
@@ -498,10 +588,10 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 :Function rdf:type owl:Class ;
           rdfs:subClassOf owl:Class .
 
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#FunctionChain
 :FunctionChain rdf:type owl:Class ;
                rdfs:subClassOf owl:Class .
-
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#HTTP
@@ -518,8 +608,11 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 :Host rdf:type owl:Class ;
       rdfs:subClassOf owl:Class .
 
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#HostFunction
 :HostFunction rdf:type owl:Class ;
-	rdfs:subClassOf :Function .
+              rdfs:subClassOf :Function .
+
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#HubFunction
 :HubFunction rdf:type owl:Class ;
@@ -683,6 +776,12 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
                rdfs:subClassOf :OpenstackTerm .
 
 
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#MetroSwitch
+:MetroSwitch rdf:type owl:Class ;
+             rdfs:subClassOf :BGPFunction ,
+                             :MPLSFunction .
+
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#MiddleboxFunction
 :MiddleboxFunction rdf:type owl:Class ;
                    rdfs:subClassOf :Function .
@@ -728,6 +827,21 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Network
 :Network rdf:type owl:Class ;
          rdfs:subClassOf owl:Class .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#NetworkExposureFunction
+:NetworkExposureFunction rdf:type owl:Class ;
+                         rdfs:subClassOf :RadioAccessFunction .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#NetworkRepositoryFunction
+:NetworkRepositoryFunction rdf:type owl:Class ;
+                           rdfs:subClassOf :RadioAccessFunction .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#NetworkSliceSelectionFunction
+:NetworkSliceSelectionFunction rdf:type owl:Class ;
+                               rdfs:subClassOf :RadioAccessFunction .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Neutron
@@ -850,7 +964,13 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#PhysicalSwitch
 :PhysicalSwitch rdf:type owl:Class ;
-		rdfs:subClassOf :PhysicalDevice, :SwitchFunction .
+                rdfs:subClassOf :PhysicalDevice ,
+                                :SwitchFunction .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#PolicyControlFunction
+:PolicyControlFunction rdf:type owl:Class ;
+                       rdfs:subClassOf :RadioAccessFunction .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Protocol
@@ -861,6 +981,16 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#RTSP
 :RTSP rdf:type owl:Class ;
       rdfs:subClassOf :Protocol .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#RadioAccessFunction
+:RadioAccessFunction rdf:type owl:Class ;
+                     rdfs:subClassOf :Function .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ResourceClaim
+:ResourceClaim rdf:type owl:Class ;
+               rdfs:subClassOf :State .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#RouteFunction
@@ -895,8 +1025,8 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Server
 :Server rdf:type owl:Class ;
-        rdfs:subClassOf :DeploymentUnit ;
-        rdfs:subClassOf :OpenstackTerm .
+        rdfs:subClassOf :DeploymentUnit ,
+                        :OpenstackTerm .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ServerUsage
@@ -908,14 +1038,25 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 :Service rdf:type owl:Class ;
          rdfs:subClassOf owl:Class .
 
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#ServiceFunction
 :ServiceFunction rdf:type owl:Class ;
-		rdfs:subClassOf :Function .
+                 rdfs:subClassOf :Function .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#SessionManagementFunction
+:SessionManagementFunction rdf:type owl:Class ;
+                           rdfs:subClassOf :RadioAccessFunction .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Stack
 :Stack rdf:type owl:Class ;
        rdfs:subClassOf :OpenstackTerm .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#State
+:State rdf:type owl:Class ;
+       rdfs:subClassOf owl:Class .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#SwitchFunction
@@ -948,9 +1089,19 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
      rdfs:subClassOf :Protocol .
 
 
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#UnifiedDataManagementFunction
+:UnifiedDataManagementFunction rdf:type owl:Class ;
+                               rdfs:subClassOf :RadioAccessFunction .
+
+
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#Unikernel
 :Unikernel rdf:type owl:Class ;
            rdfs:subClassOf :ExecutionEnvironment .
+
+
+###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#UserPlaneFunction
+:UserPlaneFunction rdf:type owl:Class ;
+                   rdfs:subClassOf :RadioAccessFunction .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#VCAN
@@ -960,8 +1111,8 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#VDU
 :VDU rdf:type owl:Class ;
-     rdfs:subClassOf :DeploymentUnit ;
-     rdfs:subClassOf :OsmTerm .
+     rdfs:subClassOf :DeploymentUnit ,
+                     :OsmTerm .
 
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#VDUR
@@ -1082,17 +1233,31 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 
 ###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#executionState
 :executionState rdf:type owl:Class ;
-	rdfs:subClassOf owl:Class .
+                rdfs:subClassOf owl:Class .
 
 
-
-###  http://raw.githubusercontent.com/Guilvareux/ontologies/main/network/network#TLS/SSL
-:TLS rdf:type owl:Class .
+###  http://www.w3.org/2002/07/owl#Class
+owl:Class rdf:type owl:Class .
 
 
 #################################################################
 #    General axioms
 #################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AccessMobilityManagementFunction
+                :ApplicationFunction
+                :AuthenticationServerFunction
+                :NetworkExposureFunction
+                :NetworkRepositoryFunction
+                :NetworkSliceSelectionFunction
+                :PolicyControlFunction
+                :SessionManagementFunction
+                :UnifiedDataManagementFunction
+                :UserPlaneFunction
+              )
+] .
+
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :BGP
@@ -1118,8 +1283,8 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
                 :SNMP
                 :SSH
                 :TCP
+                :TLS
                 :UDP
-				:TLS
               )
 ] .
 
@@ -1189,4 +1354,4 @@ owl:topDataProperty rdf:type owl:ObjectProperty .
 ] .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
